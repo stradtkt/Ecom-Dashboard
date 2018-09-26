@@ -1,0 +1,11 @@
+E:\csharp\KevinStradtman\EcomStore\bin\Debug\netcoreapp2.0\EcomStore.deps.json
+E:\csharp\KevinStradtman\EcomStore\bin\Debug\netcoreapp2.0\EcomStore.runtimeconfig.json
+E:\csharp\KevinStradtman\EcomStore\bin\Debug\netcoreapp2.0\EcomStore.runtimeconfig.dev.json
+E:\csharp\KevinStradtman\EcomStore\bin\Debug\netcoreapp2.0\EcomStore.dll
+E:\csharp\KevinStradtman\EcomStore\bin\Debug\netcoreapp2.0\EcomStore.pdb
+E:\csharp\KevinStradtman\EcomStore\obj\Debug\netcoreapp2.0\EcomStore.csprojResolveAssemblyReference.cache
+E:\csharp\KevinStradtman\EcomStore\obj\Debug\netcoreapp2.0\EcomStore.csproj.CoreCompileInputs.cache
+E:\csharp\KevinStradtman\EcomStore\obj\Debug\netcoreapp2.0\EcomStore.AssemblyInfoInputs.cache
+E:\csharp\KevinStradtman\EcomStore\obj\Debug\netcoreapp2.0\EcomStore.AssemblyInfo.cs
+E:\csharp\KevinStradtman\EcomStore\obj\Debug\netcoreapp2.0\EcomStore.dll
+E:\csharp\KevinStradtman\EcomStore\obj\Debug\netcoreapp2.0\EcomStore.pdb

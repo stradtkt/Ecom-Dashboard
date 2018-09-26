@@ -1,0 +1,20 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #eeeeee;
+}
+
+.card form input,
+.card form select,
+.card form textarea {
+    box-shadow: 2px 2px 5px rgba(50,50,50,0.5);
+}
+
+.card-img-top {
+    width: 70% !important;
+    height: 70% !important;
+    margin: 0 auto !important;
+    display: block;
+}
+
+

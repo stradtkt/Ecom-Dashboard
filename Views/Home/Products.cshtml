@@ -1,0 +1,95 @@
+@{
+    ViewData["Title"] = "Products";
+}
+
+@model EcomStore.Models.Product
+
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card p-5 mt-5 mb-5">
+            <h3 class="card-title text-center">Add Product</h3>
+            <form asp-action="AddProduct" asp-controller="Home" method="POST">
+                <div class="form-group">
+                    <div class="bg-danger">
+                        <span asp-validation-for="name" class="text-center text-white"></span>
+                    </div>
+                    <br>
+                    <input asp-for="name" class="form-control" placeholder="Product Name">
+                </div>
+                <div class="form-group">
+                    <div class="bg-danger">
+                        <span asp-validation-for="short_desc" class="text-center text-white"></span>
+                    </div>
+                    <br>
+                    <input asp-for="short_desc" class="form-control" placeholder="Short Description">
+                </div>
+                <div class="form-group">
+                    <div class="bg-danger">
+                        <span asp-validation-for="desc" class="text-center text-white"></span>
+                    </div>
+                    <br>
+                    <textarea asp-for="desc" cols="30" rows="10" class="form-control" placeholder="Description"></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="bg-danger">
+                        <span asp-validation-for="image" class="text-center text-white"></span>
+                    </div>
+                    <br>
+                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                    <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
+                    <div>
+                        <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span>
+                        <span class="fileinput-exists">Change</span>
+                        <input type="file" name="image"></span>
+                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                    </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="bg-danger">
+                        <span asp-validation-for="price" class="text-center text-white"></span>
+                    </div>
+                    <br>
+                    <label asp-for="price"></label>
+                    <input asp-for="price" class="form-control">
+                </div>
+                <div class="form-group">
+                    <div class="bg-danger">
+                        <span asp-validation-for="weight" class="text-center text-white"></span>
+                    </div>
+                    <br>
+                    <label asp-for="weight"></label>
+                    <input asp-for="weight" class="form-control">
+                </div>
+                <div class="form-group">
+                    <div class="bg-danger">
+                        <span asp-validation-for="qty" class="text-center text-white"></span>
+                    </div>
+                    <br>
+                    <label asp-for="qty"></label>
+                    <input asp-for="qty" class="form-control">
+                </div>
+                <input type="submit" value="Add Product" class="btn btn-round btn-lg btn-info" style="margin: 0 auto; display: block; text-align: center;">
+            </form>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card p-5 mt-5 mb-5">
+            @foreach (var p in ViewBag.products)
+            {
+                <div class="card" style="width: 49%;">
+                    <img src="~/images/@p.image" alt="Product Image" class="card-img-top">
+                    <h4 class="card-title text-center">@p.name</h4>
+                    <div class="card-body text-center">
+                        <p class="card-text">@p.short_desc <br> Price: @p.price <br> Quantity: @p.qty <br> Weight: @p.weight</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="EditProduct/@p.product_id" class="btn btn-warning m-3" style="margin: 0 auto; display: block; text-align: center;">Edit</a>
+                        <a href="DeleteProduct/@p.product_id" class="btn btn-danger m-3" style="margin: 0 auto; display: block; text-align: center;">Delete</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
