@@ -60,6 +60,11 @@
           </div>
         </li>
       </ul>
+      <ul class="navbar-nav ml-auto">
+         <li class="nav-item pull-right">
+            <a class="nav-link" asp-action="Logout" asp-controller="Home">Logout</a>
+        </li>
+       </ul>
        }
        else
        {
@@ -72,17 +77,6 @@
            </li>
          </ul>
        }
-       <ul class="navbar-nav ml-auto">
-         <li class="nav-item dropdown pull-right">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Cart
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" asp-action="ViewCart" asp-controller="Home">View Cart</a>
-            <a class="dropdown-item" asp-action="Checkout" asp-controller="Home">Checkout</a>
-          </div>
-        </li>
-       </ul>
     </div>
   </div>
 </nav>

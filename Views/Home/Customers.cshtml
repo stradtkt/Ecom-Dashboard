@@ -1,0 +1,43 @@
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card p-3 mt-5 mb-5">
+            <h3 class="text-center">@ViewData["Title"]</h3>
+            <table class="table table-hover text-center">
+                <thead class="bg-info text-white">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Order Count</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var c in ViewBag.customers)
+                    {
+                        <tr>
+                            <td>@c.customer_id</td>
+                            <td>@c.first_name @c.last_name</td>
+                            <td>@c.address @c.city, @c.state @c.zip</td>
+                            <td>@c.phone</td>
+                            <td>@c.email</td>
+                            <td>@c.password</td>
+                            <td>@c.Orders.Count</td>
+                            <td>
+                                <a href="EditUser/@c.customer_id" class="btn btn-warning btn-round">Edit</a>
+                                <a href="DeleteCustomer/@c.customer_id" class="btn btn-danger btn-round">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
