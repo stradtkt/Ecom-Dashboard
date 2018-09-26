@@ -16,5 +16,10 @@
     margin: 0 auto !important;
     display: block;
 }
+.card.products {
+    height: 975px;
+    overflow-y: scroll;
+    scroll-behavior: auto;
+}
 
 

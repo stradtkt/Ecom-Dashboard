@@ -14,7 +14,7 @@ namespace EcomStore.Models
         public string name {get;set;}
         [Required(ErrorMessage="Short description is required")]
         [MinLength(5, ErrorMessage="Short description has a min length of 5")]
-        [MaxLength(40, ErrorMessage="Short description has a max length of 40")]
+        [MaxLength(100, ErrorMessage="Short description has a max length of 100")]
         public string short_desc {get;set;}
         [Required(ErrorMessage="Description is required")]
         [MinLength(10, ErrorMessage="Description has a min length of 10")]
@@ -30,11 +30,11 @@ namespace EcomStore.Models
         [Required(ErrorMessage="Quantity is required")]
         [Display(Name="Quantity")]
         public int qty {get;set;}
-        public List<ProductsOrders> ProductsOrders {get;set;}
+        public List<Order> Orders {get;set;}
         public List<ProductsCategories> ProductsCategories {get;set;}
         public Product()
         {
-            ProductsOrders = new List<ProductsOrders>();
+            Orders = new List<Order>();
             ProductsCategories = new List<ProductsCategories>();
             created_at = DateTime.Now;
             updated_at = DateTime.Now;

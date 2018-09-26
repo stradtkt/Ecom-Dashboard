@@ -1,0 +1,76 @@
+@model EcomStore.Models.Order
+@{
+    ViewData["Title"] = "Orders";
+}
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <div class="card p-5 mt-5 mb-5">
+            <h3 class="text-center">Add Order</h3>
+            <form asp-action="AddOrder" asp-controller="Home" method="POST">
+                <div class="form-group">
+                    <select name="customer_id" class="form-control">
+                        @foreach (var c in ViewBag.customers)
+                        {
+                            <option value="@c.customer_id">@c.first_name @c.last_name</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select name="order_qty" class="form-control">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select name="product_id" class="form-control">
+                        @foreach (var p in ViewBag.products)
+                        {
+                            <option value="@p.product_id">@p.name</option>
+                        }
+                    </select>
+                </div>
+                <input type="submit" value="Add Order" class="btn btn-info" style="margin: 0 auto; display: block; text-align: center;">
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card p-3 mt-5 mb-5">
+            <table class="table table-hover text-center">
+                <thead class="bg-info text-white">
+                    <tr>
+                        <th>Customer Name</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var o in ViewBag.orders)
+                    {
+                        <tr>
+                            <td>@o.Customer.first_name @o.Customer.last_name</td>
+                            <td>@o.Customer.address @o.Customer.city, @o.Customer.state @o.Customer.zip</td>
+                            <td>@o.Customer.phone</td>
+                            <td>@o.Products.name</td>
+                            <td>@o.order_qty</td>
+                            <td>@o.created_at</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

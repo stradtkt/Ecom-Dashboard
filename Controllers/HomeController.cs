@@ -207,6 +207,48 @@ namespace EcomStore.Controllers
 
         //*************************************************************************************Orders******************************************************************* */
 
+
+        [HttpGet("Orders")]
+        public IActionResult Orders()
+        {
+            if(ActiveUser == null)
+            {
+                return RedirectToAction("Login");
+            }
+            List<Customer> customers = _eContext.customers.ToList();
+            List<Product> products = _eContext.products.ToList();
+            List<Order> orders = _eContext.orders
+                .Include(p => p.Products)
+                .Include(c => c.Customer)
+                .ToList();
+            ViewBag.orders = orders;
+            ViewBag.customers = customers;
+            ViewBag.products = products;
+            ViewBag.user = ActiveUser;
+            return View();
+        }
+        [HttpPost("AddOrder")]
+        public IActionResult AddOrder(int customer_id, int product_id, int order_qty)
+        {
+            if(ActiveUser == null) 
+            {
+                return RedirectToAction("Login");
+            }
+            if(ModelState.IsValid)
+            {
+                Order newOrder = new Order
+                {
+                    product_id = product_id,
+                    order_qty = order_qty,
+                    customer_id = customer_id
+                };
+                _eContext.orders.Add(newOrder);
+                _eContext.SaveChanges();
+                return RedirectToAction("Orders");
+            }
+            return View("Orders");
+        }
+
         //*************************************************************************************Customers******************************************************************* */
 
         public IActionResult Error()

@@ -11,7 +11,6 @@ namespace EcomStore.Models
         public DbSet<Category> categories {get;set;}
         public DbSet<Product> products {get;set;}
         public DbSet<Order> orders {get;set;}
-        public DbSet<ProductsOrders> products_orders {get;set;}
         public DbSet<ProductsCategories> products_categories  {get;set;}
     }
 }
