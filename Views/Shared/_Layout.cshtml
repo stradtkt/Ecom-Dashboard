@@ -23,41 +23,17 @@
        @if(ViewBag.user != null)
        {
       <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Customers
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" asp-action="Customers" asp-controller="Home"> Customers</a>
-            <a class="dropdown-item" asp-action="AddCustomer" asp-controller="Home">Add Customer</a>
-          </div>
+        <li class="nav-item">
+            <a class="nav-link" asp-action="Customers" asp-controller="Home"> Customers</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Products
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" asp-action="Products" asp-controller="Home">Products</a>
-            <a class="dropdown-item" asp-action="AddProduct" asp-controller="Home"> Add Product</a>
-          </div>
+        <li class="nav-item">
+            <a class="nav-link" asp-action="Products" asp-controller="Home">Products</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Orders
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" asp-action="Orders" asp-controller="Home">Orders</a>
-            <a class="dropdown-item" asp-action="Add Order" asp-controller="Home"> Add Order</a>
-          </div>
+        <li class="nav-item">
+            <a class="nav-link" asp-action="Orders" asp-controller="Home">Orders</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Categories
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" asp-action="Categories" asp-controller="Home">Categories</a>
-            <a class="dropdown-item" asp-action="AddCategory" asp-controller="Home"> Add Category</a>
-          </div>
+        <li class="nav-item">
+            <a class="nav-link" asp-action="Categories" asp-controller="Home">Categories</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">

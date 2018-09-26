@@ -309,6 +309,45 @@ namespace EcomStore.Controllers
             return RedirectToAction("Customers");
         }
 
+
+        //*************************************************************************************Categories******************************************************************* */
+
+        [HttpGet("Categories")]
+        public IActionResult Categories()
+        {
+            List<Category> categories = _eContext.categories.Include(pc => pc.ProductsCategories).ToList();
+            List<Product> products = _eContext.products.Include(pc => pc.ProductsCategories).ToList();
+            ViewBag.categories = categories;
+            ViewBag.products = products;
+            return View();
+        }
+
+        [HttpPost("AddCategory")]
+        public IActionResult AddCategory(Category cat)
+        {
+            Category item = new Category
+            {
+                name = cat.name
+            };
+            _eContext.categories.Add(item);
+            _eContext.SaveChanges();
+            return RedirectToAction("Categories");
+        }
+
+        [HttpPost("AddCategoryToProduct")]
+        public IActionResult AddCategoryToProduct(int category_id, int product_id)
+        {
+            ProductsCategories item = new ProductsCategories
+            {
+                product_id = product_id,
+                category_id = category_id
+            };
+            _eContext.products_categories.Add(item);
+            _eContext.SaveChanges();
+            return RedirectToAction("Categories");
+        }
+
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
