@@ -1,0 +1,50 @@
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<div class="row">
+    <div class="col-md-10 offset-1 mt-5 mb-5">
+        <div class="card p-5 mt-5 mb-5">
+            <h1 class="text-center">@ViewBag.product.name</h1>
+            <form action="/@ViewBag.product.product_id/ProcessEditProduct" method="POST">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input type="text" name="name" class="form-control" value="@ViewBag.product.name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="text" name="short_desc" class="form-control" value="@ViewBag.product.short_desc">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
+                        <div>
+                            <span class="btn btn-default btn-file">
+                                <span class="fileinput-new">Select image</span>
+                                <span class="fileinput-exists">Change</span>
+                                <input type="file" name="image" value="@ViewBag.product.image"></span>
+                            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-8">
+                        <input type="text" class="form-control" name="desc" value="@ViewBag.product.desc">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <input type="number" name="price" class="form-control" value="@ViewBag.product.price">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <input type="number" name="weight" class="form-control" value="@ViewBag.product.weight">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <input type="number" name="qty" class="form-control" value="@ViewBag.product.qty">
+                    </div>
+                </div>
+                <input type="submit" value="Update Product" class="btn btn-info btn-round" style="margin: 0 auto; display: block; text-align: center;">
+            </form>
+        </div>
+    </div>
+</div>
