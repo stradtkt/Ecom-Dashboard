@@ -251,6 +251,64 @@ namespace EcomStore.Controllers
 
         //*************************************************************************************Customers******************************************************************* */
 
+        [HttpGet("Customers")]
+        public IActionResult Customers()
+        {
+            if(ActiveUser == null)
+            {
+                return RedirectToAction("Login");
+            }
+            List<Customer> customers = _eContext.customers.Include(o => o.Orders).ToList();
+            ViewBag.customers = customers;
+            ViewBag.user = ActiveUser;
+            return View();
+        }
+
+        [HttpGet("EditUser/{customer_id}")]
+        public IActionResult EditUser(int customer_id)
+        {
+            if(ActiveUser == null)
+            {
+                return RedirectToAction("Login");
+            }
+            Customer customer = _eContext.customers.Where(c => c.customer_id == customer_id).SingleOrDefault();
+            ViewBag.customer = customer;
+            ViewBag.user = ActiveUser;
+            return View();
+        }
+        [Route("{customer_id}/ProcessEditUser")]
+        public IActionResult ProcessEditUser(int customer_id, string first_name, string last_name, string address, string city, string state, string zip, string phone, string email)
+        {
+            if(ActiveUser == null)
+            {
+                return RedirectToAction("Login");
+            }
+            Customer customer = _eContext.customers.Where(c => c.customer_id == customer_id).SingleOrDefault();
+            customer.first_name = first_name;
+            customer.last_name = last_name;
+            customer.address = address;
+            customer.city = city;
+            customer.state = state;
+            customer.zip = zip;
+            customer.phone = phone;
+            customer.email = email;
+            _eContext.SaveChanges();
+            return RedirectToAction("Customers");
+        }
+
+        [HttpGet("DeleteCustomer/{customer_id}")]
+        public IActionResult DeleteCustomer(int customer_id)
+        {
+            if(ActiveUser == null)
+            {
+                return RedirectToAction("Login");
+            }
+            Customer customer = _eContext.customers.Where(c => c.customer_id == customer_id).SingleOrDefault();
+            _eContext.customers.Remove(customer);
+            _eContext.SaveChanges();
+            return RedirectToAction("Customers");
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
