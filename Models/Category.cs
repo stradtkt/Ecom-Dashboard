@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EcomStore.Models
 {
-    public class Category : BaseEntity
+    public class Category
     {
         [Key]
         public int category_id {get;set;}
@@ -13,8 +13,6 @@ namespace EcomStore.Models
         public Category()
         {
             ProductsCategories = new List<ProductsCategories>();
-            created_at = DateTime.Now;
-            updated_at = DateTime.Now;
         }
     }
 }

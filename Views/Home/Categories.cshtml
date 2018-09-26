@@ -1,0 +1,58 @@
+@{
+    ViewData["Title"] = "Categories";
+}
+@model EcomStore.Models.Category
+<div class="row">
+    <div class="col-md-6">
+        <div class="card p-3 mt-5 mb-5">
+            <h3 class="text-center">Add Category</h3>
+            <form asp-action="AddCategory" asp-controller="Home" method="POST">
+                <div class="form-group">
+                    <input asp-for="name" class="form-control" placeholder="Category Name">
+                </div>
+                <input type="submit" value="Add Category" class="btn btn-info btn-round">
+            </form>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card p-3 mt-5 mb-5">
+            <h3 class="text-center">Categories</h3>
+            @foreach (var c in ViewBag.categories)
+            {
+                <p>@c.name</p>
+            }
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card p-3 mt-5 mb-5">
+            <h3 class="text-center">Add Category To Product</h3>
+            <form action="AddCategoryToProduct" method="POST">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <h4 class="text-center">Products</h4>
+                        <select name="product_id" class="form-control">
+                            @foreach (var p in ViewBag.products)
+                            {
+                                <option value="@p.product_id">@p.name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <h4 class="text-center">Categories</h4>
+                        <select name="category_id" class="form-control">
+                            @foreach (var c in ViewBag.categories)
+                            {
+                                <option value="@c.category_id">@c.name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <input type="submit" value="Add" class="btn btn-info btn-round">
+            </form>
+        </div>
+    </div>
+</div>
